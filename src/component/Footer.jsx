@@ -39,7 +39,7 @@ function Footer() {
         </div>
 
       </div>
-      <div className='w-full text-center font-thin pt-8 pb-2'>© Copyright SiyuMarket 2024. All rights reserved</div>
+      <div className='w-full text-center font-thin pt-9 pb-3'>© Copyright SiyuMarket 2024. All rights reserved</div>
     </footer>
   );
 }

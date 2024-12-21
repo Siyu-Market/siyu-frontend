@@ -10,10 +10,13 @@ function Navbar() {
         <div className='flex items-end justify-center'>
             <img src={Logo} className='h-[46px] w-[60px]' alt="Siyu Market" /><h2 className='text-3xl font-semibold'>Siyu Market</h2>
         </div>
-        {/* <div>
-            <div>Products</div>
-            <div></div>
-        </div> */}
+        <div className='flex items-center'>
+            <div className='text-normal mr-[24px] cursor-pointer'>Home</div>
+            <div className='text-normal mr-[24px] cursor-pointer'>Vendors</div>
+            <div className='text-normal mr-[24px] cursor-pointer'>Products</div>
+            <div className='text-normal mr-[24px] cursor-pointer'>About Us</div>
+            
+        </div>
         <div className='flex items-center justify-center'>
             <div className='bg-gray-200 rounded-sm flex w-[243px] h-[38px] mr-[16px] items-center justify-center outline-none border-0'>
                 <input type="text" 
