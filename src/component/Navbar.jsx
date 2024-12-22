@@ -1,20 +1,24 @@
 import React from 'react'
+import { useNavigate} from 'react-router-dom'
 import Search from '../assets/Component 2.png'
 import Cart from '../assets/Cart1.png'
 import User from '../assets/user.png'
 import Logo from '../assets/siyulogo.svg'
 
 function Navbar() {
+    const navigate = useNavigate()
+
+
   return (
     <div className='w-full flex items-center justify-between mt-8 '>
-        <div className='flex items-end justify-center'>
+        <div className='flex items-end justify-center' onClick={() => navigate('/')}>
             <img src={Logo} className='h-[46px] w-[60px]' alt="Siyu Market" /><h2 className='text-3xl font-semibold'>Siyu Market</h2>
         </div>
         <div className='flex items-center'>
-            <div className='text-normal mr-[24px] cursor-pointer'>Home</div>
-            <div className='text-normal mr-[24px] cursor-pointer'>Vendors</div>
-            <div className='text-normal mr-[24px] cursor-pointer'>Products</div>
-            <div className='text-normal mr-[24px] cursor-pointer'>About Us</div>
+            <div className='text-normal mr-[24px] cursor-pointer' onClick={() => navigate('/')}>Home</div>
+            <div className='text-normal mr-[24px] cursor-pointer' onClick={() => navigate('/all-stores')}>Vendors</div>
+            <div className='text-normal mr-[24px] cursor-pointer' onClick={() => navigate('/products')}>Products</div>
+            <div className='text-normal mr-[24px] cursor-pointer' onClick={() => navigate('/')}>About Us</div>
             
         </div>
         <div className='flex items-center justify-center'>
