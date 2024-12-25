@@ -9,8 +9,8 @@ import Store from '../component/Store'
 function Home() {
   return (
     <div>
-      <div className='mx-[119px]'>
-        <Navbar />
+      <div className='max-w-[1800px] mx-auto px-4'>
+
         <Herobanner />
         <Services />
         <Title title="Top Vendors, Top Deals" subtitle="Our largest vendors with massive sales are ready to bring you unbeatable deals!"/>

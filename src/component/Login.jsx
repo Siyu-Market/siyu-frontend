@@ -1,6 +1,5 @@
 import React, { useState} from 'react'
 import { useNavigate} from 'react-router-dom'
-import Navbar from './Navbar';
 import Logo from '../assets/siyulogo.svg'
 
 
@@ -24,8 +23,7 @@ function Login() {
 
   
   return (
-    <div className='mx-[119px]'>
-        <Navbar />
+    <div className='max-w-[1800px] mx-auto px-4'>
         <div className='py-0 flex items-center justify-center w-[90vw]'>
             <div className='h-[90vh] flex items-center justify-center'>
                 <div className='w-[400px]'>

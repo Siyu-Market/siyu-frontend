@@ -176,15 +176,14 @@ function Productpage() {
       const navigate = useNavigate()
 
   return (
-    <div  className='mx-[119px]'>
-        <Navbar />
+    <div  className='max-w-[1800px] mx-auto px-4'>
         <div className='mt-[20px]'>
           <Title
             title="Products"
             subtitle="All products available on Siyumarket"
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 px-4 mb-6  mt-[60px]">
+        <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-5 md:grid-cols-4  gap-3 px-4 mb-6  mt-[60px]">
         {product.map((product, index) => (
           <motion.div
             key={index}

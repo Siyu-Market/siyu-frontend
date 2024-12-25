@@ -1,15 +1,13 @@
 import React, { useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/siyulogo.svg'
-import Navbar from './Navbar';
+
 
 function SignUp() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [address, setAddress] = useState('');
-  
   const [telephone, setTelephone] = useState('');
-
   const [matricNo, setMatricNo] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,13 +23,15 @@ function SignUp() {
 
   
   const handleSubmit = (event) => {
-    event.preventDefault();
+      event.preventDefault();
+      
+
+      
   };
   
 
   return (
-    <div className='mx-[119px]'>
-        <Navbar />
+    <div className='max-w-[1800px] mx-auto px-4'>
         <div className='w-[90vw] py-0 flex items-center justify-center'>
             <div className='pt-[30px] flex items-center justify-center'>
                 <div className='w-[600px]'>

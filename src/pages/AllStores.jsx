@@ -7,8 +7,7 @@ import Footer from '../component/Footer'
 function AllStores() {
   return (
     <div>
-      <div className='mx-[119px]'>
-        <Navbar />
+      <div className='max-w-[1800px] mx-auto px-4'>
         <Title title="Explore Our Trusted Vendors" subtitle="Browse through a diverse range of vendors offering quality products across various categories" />
         <Store />
       </div>

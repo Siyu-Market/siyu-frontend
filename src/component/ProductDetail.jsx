@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from './Navbar'
 import headphone from '../assets/headphones_c_1.webp'
 import Product from './Product';
 import {motion} from 'framer-motion'
@@ -124,8 +123,8 @@ function ProductDetail() {
 
   return (
     <div>
-        <div className='mx-[119px] px-[20px] overscroll-none overflow-x-hidden'>
-            <Navbar />
+        <div className='max-w-[1800px] mx-auto px-4  overscroll-none overflow-x-hidden'>
+            
 
             <div className='mt-[60px] w-[100vw]  '>
                 <div className='w-full flex flex-wrap'>
