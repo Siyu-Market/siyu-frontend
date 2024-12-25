@@ -3,131 +3,133 @@ import Navbar from './Navbar'
 import headphone from '../assets/headphones_c_1.webp'
 import Product from './Product';
 import {motion} from 'framer-motion'
+import Fake from "../assets/products"
 import Footer from './Footer';
 
 
 function ProductDetail() {
 
-    const product = [
-        {
-          name: 'Mosky Pods',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 22,
-          star: 4,
-        
-        },
-        {
-          name: 'TechWave',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 300,
-          star: 4,
-        },
-        {
-          name: 'Gadgetify',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 254,
-          star: 3.5,
-        },
-        {
-          name: 'ElectroMax',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 32,
-          star: 4,
-        },
-        {
-          name: 'SoundZilla',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 45,
-          star: 1,
-        },
-        {
-          name: 'SmartTech',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 182,
-          star: 2,
-        },
-        {
-          name: 'Mosky Pods',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 22,
-          star: 3,
-        },
-        {
-          name: 'TechWave',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 300,
-          star: 3.5,
-        },
-        {
-          name: 'Gadgetify',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 254,
-          star: 2,
-        },
-        {
-          name: 'ElectroMax',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 32,
-          star: 4,
-        },
-        {
-          name: 'SoundZilla',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 45,
-          star: 4,
-        },
-        {
-          name: 'SmartTech',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 182,
-          star: 2,
-        },
-        {
-          name: 'Mosky Pods',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 22,
-          star: 4,
-        },
-        {
-          name: 'TechWave',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 300,
-          star: 0,
-        },
-        {
-          name: 'Gadgetify',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 254,
-          star: 5,
-        },
-        {
-          name: 'ElectroMax',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 32,
-          star: 3,
-        },
-        {
-          name: 'SoundZilla',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          price: 45,
-          star: 5,
-        },
-        {
-          name: 'SmartTech',
-          img: 'https://picsum.photos/seed/picsum/200/190',
-          star: 4,
-        },
-      ];
+  const product = [
+    {
+      name: 'Mosky Pods',
+      img: Fake.headphone1,
+      price: 22,
+      star: 4,
+    
+    },
+    {
+      name: 'TechWave',
+      img: Fake.headphone2,
+      price: 300,
+      star: 4,
+    },
+    {
+      name: 'Gadgetify',
+      img: Fake.headphone3,
+      price: 254,
+      star: 3.5,
+    },
+    {
+      name: 'ElectroMax',
+      img: Fake.headphone4,
+      price: 32,
+      star: 4,
+    },
+    {
+      name: 'SoundZilla',
+      img: Fake.headphone5,
+      price: 45,
+      star: 1,
+    },
+    {
+      name: 'SmartTech',
+      img: Fake.headphone6,
+      price: 182,
+      star: 2,
+    },
+    {
+      name: 'Mosky Pods',
+      img: Fake.headphone7,
+      price: 22,
+      star: 3,
+    },
+    {
+      name: 'TechWave',
+      img: Fake.headphone8,
+      price: 300,
+      star: 3.5,
+    },
+    {
+      name: 'Gadgetify',
+      img: Fake.headphone9,
+      price: 254,
+      star: 2,
+    },
+    {
+      name: 'ElectroMax',
+      img: Fake.headphone10,
+      price: 32,
+      star: 4,
+    },
+    {
+      name: 'SoundZilla',
+      img: Fake.headphone11,
+      price: 45,
+      star: 4,
+    },
+    {
+      name: 'SmartTech',
+      img: Fake.headphone12,
+      price: 182,
+      star: 2,
+    },
+    {
+      name: 'Mosky Pods',
+      img: Fake.headphone13,
+      price: 22,
+      star: 4,
+    },
+    {
+      name: 'TechWave',
+      img: Fake.headphone14,
+      price: 300,
+      star: 0,
+    },
+    {
+      name: 'Gadgetify',
+      img: Fake.headphone15,
+      price: 254,
+      star: 5,
+    },
+    {
+      name: 'ElectroMax',
+      img: Fake.headphone16,
+      price: 32,
+      star: 3,
+    },
+    {
+      name: 'SoundZilla',
+      img: Fake.headphone17,
+      price: 45,
+      star: 5,
+    },
+    {
+      name: 'SmartTech',
+      img: Fake.headphone18,
+      star: 4,
+    },
+  ];
+
 
 
   return (
     <div>
-        <div className='mx-[119px] overscroll-none overflow-x-hidden'>
+        <div className='mx-[119px] px-[20px] overscroll-none overflow-x-hidden'>
             <Navbar />
 
             <div className='mt-[60px] w-[100vw]  '>
                 <div className='w-full flex flex-wrap'>
-                    <div className='w-[700px] flex items-start' >
+                    <div className='w-[600px] flex items-start' >
                         <img className='' src={headphone} alt="product" />
                     </div>
                     <div className='w-[500px]'>
