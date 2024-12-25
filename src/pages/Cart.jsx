@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import earphone from "../assets/products/earphones_a_1.webp";
 import headphone from "../assets/products/headphones_a_1.webp";
@@ -51,11 +50,10 @@ const Cart = () => {
 
   return (
     <div>
-      <div className="mx-[119px]">
-        <Navbar />
-        <div className="container mx-auto py-10">
-          <div className="px-6 py-7 bg-gray-200">
-            <h1 className="text-4xl font-bold mb-4 text-center text-blue-800">
+      <div className="max-w-[1800px] mx-auto px-4">
+        <div className="container py-10">
+          <div className="py-5 w-full bg-blue-800">
+            <h1 className="text-4xl font-bold mb-4 text-center text-white">
               Shopping Cart
             </h1>
           </div>
