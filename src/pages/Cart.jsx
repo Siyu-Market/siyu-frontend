@@ -62,7 +62,7 @@ const Cart = () => {
           <div className="w-screen sm:w-full bg-white rounded p-4">
             {cartItems.length > 0 ? (
               <div>
-                <table className="w-11/12 sm:w-full text-left border-none ">
+                <table className="w-11/12 sm:w-full table-auto text-left border-none ">
                   <thead>
                     <tr>
                       <th className="border-b py-2 text-sm sm:text-base">
