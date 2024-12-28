@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../component/Footer";
 import earphone from "../assets/products/earphones_a_1.webp";
 import headphone from "../assets/products/headphones_a_1.webp";
+import headphone2 from "../assets/products/headphones_a_2.webp";
 import minus from "../assets/icon-minus.svg";
 import add from "../assets/icon-plus.svg";
 import del from "../assets/icon-delete.svg";
@@ -12,6 +13,7 @@ const Cart = () => {
   const cartItems = [
     { id: 1, image: earphone, name: "Product A", price: 4500, quantity: 3 },
     { id: 2, image: headphone, name: "Product B", price: 10000, quantity: 1 },
+    { id: 3, image: headphone2, name: "Product B", price: 10000, quantity: 3 },
   ];
 
   const [value, setValue] = useState(() => {
@@ -49,9 +51,9 @@ const Cart = () => {
   };
 
   return (
-    <div>
-      <div className="max-w-[1800px] mx-auto px-4">
-        <div className="container py-10">
+    <div className="max-w-[1800px] mx-auto px-4">
+      <div className="w-full">
+        <div className="py-10">
           <div className="py-5 w-full bg-blue-800">
             <h1 className="text-4xl font-bold mb-4 text-center text-white">
               Shopping Cart

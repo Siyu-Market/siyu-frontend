@@ -105,7 +105,7 @@ function Navbar() {
           <img src={Search} alt="Search Icon" className="my-[7px] cursor-pointer" />
         </div>
         <div className="flex justify-between items-center">
-          <div>
+          <div onClick={() => navigate('/cart')}>
             <img src={Cart} alt="Cart Icon" className="my-[7px] mr-[16px] cursor-pointer" />
           </div>
           <div>
