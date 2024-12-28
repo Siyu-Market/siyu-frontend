@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../component/Navbar'
 import Title from '../component/Title'
 import Store from '../component/Store'
 import Footer from '../component/Footer'

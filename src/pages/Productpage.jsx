@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../component/Navbar'
 import Product from '../component/Product'
 import { useNavigate} from 'react-router-dom'
 import { motion } from 'framer-motion';

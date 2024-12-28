@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../component/Navbar'
 import Herobanner from '../component/Herobanner'
 import Footer from '../component/Footer'
 import Services from '../component/Services'
