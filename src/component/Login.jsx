@@ -9,7 +9,7 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const { login } = useUser()
+  const { user, login } = useUser()
   
 
   const handleChange = (setter) => (event) => {
@@ -35,6 +35,10 @@ function Login() {
     }
   };
   
+  if(user){
+    navigate('/')
+    return
+  }
   
 
   return (

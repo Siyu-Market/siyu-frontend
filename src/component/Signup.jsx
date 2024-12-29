@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/siyulogo.svg';
+import { useUser } from '../context/Usercontext';
 
 function SignUp() {
   const [firstName, setFirstName] = useState('');
@@ -11,6 +12,7 @@ function SignUp() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const { user } = useUser();
 
   const navigate = useNavigate();
 
@@ -18,10 +20,45 @@ function SignUp() {
     setter(event.target.value);
   };
 
+  const validatePassword = (password) => {
+    
+    const minLength = 8;
+    if (password.length < minLength) {
+      return 'Password must be at least 8 characters long';
+    }
+
+    const hasUppercase = /[A-Z]/.test(password);
+    if (!hasUppercase) {
+      return 'Password must contain at least one uppercase letter';
+    }
+
+    const hasLowercase = /[a-z]/.test(password);
+    if (!hasLowercase) {
+      return 'Password must contain at least one lowercase letter';
+    }
+
+    const hasNumber = /[0-9]/.test(password);
+    if (!hasNumber) {
+      return 'Password must contain at least one number';
+    }
+
+    
+    return true;
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
     setError(null);
+
+    const passwordValidation = validatePassword(password);
+    if (passwordValidation !== true) {
+      setError(passwordValidation);
+      setLoading(false);
+      return;
+    }
+
+    
 
     try {
       const response = await fetch('https://siyumarket-backend.vercel.app/users/auth/register', {
@@ -44,6 +81,7 @@ function SignUp() {
       }
 
       const data = await response.json();
+      console.log('data:', data)
       setSuccess('Registration successful! Redirecting to login...');
       setTimeout(() => navigate('/verify-email'), 3000); 
     } catch (err) {
@@ -52,6 +90,11 @@ function SignUp() {
       setLoading(false);
     }
   };
+
+  if(user){
+    navigate('/')
+    return
+  }
 
   return (
     <div className="max-w-[1800px] mx-auto px-4">

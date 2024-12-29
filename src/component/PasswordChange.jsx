@@ -1,19 +1,49 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/siyulogo.svg';
+import { useUser } from '../context/Usercontext';
 
 function PasswordChange() {
+  const { user } = useUser();
   const [newPassword, setNewPassword] = useState('');
+  const [oldPassword, setOldPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const navigate = useNavigate();
-  const location = useLocation();
 
+  const token = user ? user.data.access_token : null;
 
-  const queryParams = new URLSearchParams(location.search);
-  const token = queryParams.get('token');
+  if (!token) {
+    navigate('/login');
+    console.log('user: ', user);
+  }
+
+  
+  const validatePassword = (password) => {
+    
+    const minLength = 8;
+    if (password.length < minLength) {
+      return 'Password must be at least 8 characters long';
+    }
+
+    const hasUppercase = /[A-Z]/.test(password);
+    if (!hasUppercase) {
+      return 'Password must contain at least one uppercase letter';
+    }
+
+    const hasLowercase = /[a-z]/.test(password);
+    if (!hasLowercase) {
+      return 'Password must contain at least one lowercase letter';
+    }
+
+    const hasNumber = /[0-9]/.test(password);
+    if (!hasNumber) {
+      return 'Password must contain at least one number';
+    }
+    return true;
+  }
 
   const handleChange = (setter) => (event) => {
     setter(event.target.value);
@@ -25,6 +55,14 @@ function PasswordChange() {
     setError(null);
     setSuccessMessage(null);
 
+    
+    const passwordValidation = validatePassword(newPassword);
+    if (passwordValidation !== true) {
+      setError(passwordValidation);
+      setLoading(false);
+      return;
+    }
+
     if (newPassword !== confirmPassword) {
       setError('Passwords do not match.');
       setLoading(false);
@@ -33,14 +71,15 @@ function PasswordChange() {
 
     try {
       const response = await fetch(
-        //I need to remind IBK to work on this part
-        `http://localhost:8000/users/auth/complete-reset?token=${token}`,
+        'https://siyumarket-backend.vercel.app/users/auth/change-password',
         {
-          method: 'POST',
+          method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
           },
           body: JSON.stringify({
+            old_password: oldPassword,
             new_password: newPassword,
             confirm: confirmPassword,
           }),
@@ -49,13 +88,13 @@ function PasswordChange() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to reset password.');
+        throw new Error(errorData.message || 'Failed to change password.');
       }
 
       const data = await response.json();
-      console.log('Password Reset Successfully:', data);
+      console.log('Password Changed Successfully:', data);
 
-      setSuccessMessage('Your password has been reset successfully.');
+      setSuccessMessage('Your password has been changed successfully.');
       setTimeout(() => navigate('/login'), 3000);
     } catch (err) {
       setError(err.message);
@@ -80,6 +119,15 @@ function PasswordChange() {
             {error && <p className="text-red-600 mb-4">{error}</p>}
             {successMessage && <p className="text-green-600 mb-4">{successMessage}</p>}
             <form onSubmit={handleSubmit}>
+              <h6 className="mb-[6px] text-[14px] font-medium">Old Password</h6>
+              <input
+                type="password"
+                placeholder="Enter your Old password"
+                className="loginInput w-full mb-[20px] border rounded-[8px] px-[14px] py-[10px]"
+                value={oldPassword}
+                onChange={handleChange(setOldPassword)}
+                required
+              />
               <h6 className="mb-[6px] text-[14px] font-medium">New Password</h6>
               <input
                 type="password"
@@ -106,8 +154,8 @@ function PasswordChange() {
               </button>
               <h5 className="text-center">
                 Back to{' '}
-                <span className="text-[#0179FE] cursor-pointer" onClick={() => navigate('/login')}>
-                  Login
+                <span className="text-[#0179FE] cursor-pointer" onClick={() => navigate('/')}>
+                  Home
                 </span>
               </h5>
             </form>
