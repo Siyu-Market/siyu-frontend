@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const VendorTile = ({ name, logo, categories }) => {
+const VendorTile = ({ name, logo, description }) => {
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-6 text-center shadow-lg  hover:bg-blue-800 hover:text-white">
       <div className='flex items-center justify-between px-3'>
@@ -11,14 +11,9 @@ const VendorTile = ({ name, logo, categories }) => {
       
       
       <div className="text-sm text-gray-700">
-        {categories.map((category, index) => (
-          <span 
-            key={index}
-            className="inline-block bg-gray-100 text-gray-800 px-4 py-1 rounded-full mb-2 mr-2 font-semibold"
-          >
-            {category}
+        <span className="inline-block bg-gray-100 text-gray-800 px-4 py-1 rounded-full mb-2 mr-2 font-semibold">
+            {description}
           </span>
-        ))}
       </div>
     </div>
   );

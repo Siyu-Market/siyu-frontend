@@ -7,24 +7,34 @@ import Productpage from './pages/Productpage';
 import ProductDetail from './component/ProductDetail';
 import Login from './component/Login';
 import SignUp from './component/Signup';
-import Cart from './pages/Cart'
-import VerifyEmail from './component/VerifyEmail'
+import Cart from './pages/Cart';
+import VerifyEmail from './component/VerifyEmail';
+import ResetPassword from './component/ResetPassword';
+import PasswordChange from './component/PasswordChange';
+import Footer from './component/Footer'; // Import your Footer component
 
 function App() {
   return (
     <Router>
-      <div className='max-w-[1800px] mx-auto px-4'>
+      <div className="flex flex-col min-h-screen">
+        
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/all-stores" element={<AllStores />} />
-          <Route path="/products" element={<Productpage />} />
-          <Route path="/detail" element={<ProductDetail />} />
-          <Route path="/cart" element={<Cart />}/>
-          <Route path="/verify-email" element={<VerifyEmail />} />
-        </Routes>
+        <main className="flex-1">
+          <Routes>
+            <Route path="reset-password" element={<ResetPassword />} />
+            <Route path="password-change" element={<PasswordChange />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/all-stores" element={<AllStores />} />
+            <Route path="/products" element={<Productpage />} />
+            <Route path="/detail" element={<ProductDetail />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/verify-email" element={<VerifyEmail />} />
+          </Routes>
+        </main>
+
+        <Footer />
       </div>
     </Router>
   );

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Footer from "../component/Footer";
 import earphone from "../assets/products/earphones_a_1.webp";
 import headphone from "../assets/products/headphones_a_1.webp";
 import headphone2 from "../assets/products/headphones_a_2.webp";
@@ -135,7 +134,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <Footer />
+    
     </div>
   );
 };

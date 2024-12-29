@@ -1,6 +1,5 @@
 import React from 'react'
 import Herobanner from '../component/Herobanner'
-import Footer from '../component/Footer'
 import Services from '../component/Services'
 import Title from '../component/Title'
 import Store from '../component/Store'
@@ -20,7 +19,6 @@ function Home() {
           </button>
         </div>
       </div>
-      <Footer />
     </div>
   )
 }

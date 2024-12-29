@@ -7,7 +7,7 @@ import Approved from '../assets/approved.png';
 function Services() {
   return (
     <section className="pt-7 pb-[100px]">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+      <div className="max-w-[1800px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
         
        
         <motion.div
