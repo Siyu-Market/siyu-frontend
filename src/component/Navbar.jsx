@@ -125,7 +125,7 @@ function Navbar() {
           </div>
         </div>
         <div className='flex justify-center items-center'>
-          <div
+          {user && <div
               className="text-lg cursor-pointer  bg-blue-800 w-[80%] flex items-center text-white rounded-[8px] justify-center py-[10px] mb-[32px]"
               onClick={() => {
                 setMenuOpen(false);
@@ -133,7 +133,7 @@ function Navbar() {
               }}
             >
               Logout
-            </div>
+          </div>}
         </div>
       </div>
 
