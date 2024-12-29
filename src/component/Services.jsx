@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion'; // Import motion from Framer Motion
+import { motion } from 'framer-motion'; 
 import Delivery from '../assets/delivery.png';
 import Customercare from '../assets/customer.png';
 import Approved from '../assets/approved.png';

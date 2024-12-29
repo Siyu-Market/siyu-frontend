@@ -11,8 +11,7 @@ import Cart from './pages/Cart';
 import VerifyEmail from './component/VerifyEmail';
 import ResetPassword from './component/ResetPassword';
 import PasswordChange from './component/PasswordChange';
-import Footer from './component/Footer'; // Import your Footer component
-
+import Footer from './component/Footer';
 function App() {
   return (
     <Router>
