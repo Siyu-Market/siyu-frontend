@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Vendor from './Vendor';
+import Spinner from './Spinner'
 
 const Store = () => {
   const [vendors, setVendors] = useState([]);
@@ -32,7 +33,7 @@ const Store = () => {
       {loading ? (
         <p className="text-center">Loading...</p>
       ) : error ? (
-        <p className="text-center text-red-600">{error}</p>
+        <Spinner />
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 mb-6">
           {vendors.map((vendor, index) => (

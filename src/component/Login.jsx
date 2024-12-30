@@ -26,11 +26,13 @@ function Login() {
     } catch (err) {
       if (err.message === "Email is unverified. please verify email.") {
         setTimeout(() => navigate('/verify-email'), 1500);
-        
-
       }
-      setError(err.message);
-    } finally {
+      if (err.message === "Failed to fetch") {
+        setError('Check your Internet Connection')
+      } else{
+        setError(err.message);
+      }
+    } finally { 
       setLoading(false);
     }
   };

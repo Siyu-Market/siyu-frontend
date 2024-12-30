@@ -125,7 +125,7 @@ function ProductDetail() {
     <div>
         <div className='max-w-[1800px] mx-auto px-4  overscroll-none overflow-x-hidden'>
             <div className='mt-[60px] w-[100vw]'>
-                <div className='w-full flex flex-wrap'>
+                <div className='w-full flex flex-wrap items-center custom:justify-center'>
                     <div className='w-[600px] flex items-start' >
                         <img className='' src={headphone} alt="product" />
                     </div>

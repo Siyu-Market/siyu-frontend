@@ -11,6 +11,7 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { user, logout } = useUser();
+  const [count, setCount] = useState(3)
 
 
   useEffect(() => {
@@ -27,7 +28,7 @@ function Navbar() {
   return (
     <div className="w-full flex items-center justify-between mt-8 px-6 relative">
       
-      <div className="flex items-end justify-center" onClick={() => navigate('/')}>
+      <div className="flex items-end justify-center cursor-pointer" onClick={() => navigate('/')}>
         <img src={Logo} className="h-[46px] w-[60px]" alt="Siyu Market" />
         <h2 className="text-3xl font-semibold">Siyu Market</h2>
       </div>
@@ -39,11 +40,11 @@ function Navbar() {
         <div className="w-6 h-1 bg-black"></div>
       </div>
 
-      
+      {/* Sidenavigfation */}
       <div
         className={`fixed top-0 right-0 h-full bg-white flex-col justify-between flex transition-transform duration-300 ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
-        } w-[50%] md:w-[25%] sm:w-[50%] shadow-lg z-40`}
+        } w-[50%] md:w-[35%] sm:w-[50%] shadow-lg z-40`}
       >
         <div className="flex flex-col items-center mt-16 space-y-6">
           <div
@@ -59,7 +60,7 @@ function Navbar() {
             className="text-lg cursor-pointer hover:text-blue-800 font-semibold"
             onClick={() => {
               setMenuOpen(false);
-              navigate('/all-stores');
+              navigate('/vendors');
             }}
           >
             Vendors
@@ -80,6 +81,7 @@ function Navbar() {
               navigate('/cart');
             }}
           >
+            
             Cart
           </div>
           {!user ? (
@@ -141,7 +143,7 @@ function Navbar() {
         <div className="text-normal mr-[24px] cursor-pointer" onClick={() => navigate('/')}>
           Home
         </div>
-        <div className="text-normal mr-[24px] cursor-pointer" onClick={() => navigate('/all-stores')}>
+        <div className="text-normal mr-[24px] cursor-pointer" onClick={() => navigate('/vendors')}>
           Vendors
         </div>
         <div className="text-normal mr-[24px] cursor-pointer" onClick={() => navigate('/products')}>
@@ -159,8 +161,10 @@ function Navbar() {
           <img src={Search} alt="Search Icon" className="my-[7px] cursor-pointer" />
         </div>
         <div className="flex justify-between items-center">
-          <div onClick={() => navigate('/cart')}>
+          <div onClick={() => navigate('/cart')} className='relative'>
             <img src={CartIcon} alt="Cart Icon" className="my-[7px] mr-[16px] cursor-pointer" />
+            <div className='w-[15px] h-[15px] rounded-full bg-red-600 text-white absolute top-2 right-4 flex items-center justify-center text-[10px]'>{count}</div>
+            {/* Fix the cart div to add like a count on the number of items in the cart */}
           </div>
           <div className="relative">
             <img
