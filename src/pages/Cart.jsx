@@ -58,45 +58,73 @@ const Cart = () => {
               Shopping Cart
             </h1>
           </div>
-          <div className="bg-white rounded p-4">
+          <div className="w-screen sm:w-full bg-white rounded p-4">
             {cartItems.length > 0 ? (
               <div>
-                <table className="w-full text-left border-none">
+                <table className="w-11/12 sm:w-full table-auto text-left border-none ">
                   <thead>
                     <tr>
-                      <th className="border-b py-2">Product</th>
-                      <th className="border-b py-2">Price</th>
-                      <th className="border-b py-2">Quantity</th>
-                      <th className="border-b py-2">Subtotal</th>
+                      <th className="border-b py-2 text-sm sm:text-base">
+                        Product
+                      </th>
+                      <th className="border-b py-2 text-sm sm:text-base hidden sm:block">
+                        Price
+                      </th>
+                      <th className="border-b py-2 text-sm sm:text-base">
+                        Quantity
+                      </th>
+                      <th className="border-b py-2 text-sm sm:text-base">
+                        Subtotal
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     {cartItems.map((item) => (
                       <tr key={item.id}>
-                        <td className="py-3 flex items-center gap-3 ">
-                          <img src={item.image} alt="" className="size-8" />
+                        <td className="py-3 flex items-center text-sm sm:text-base">
+                          <img
+                            src={item.image}
+                            alt=""
+                            className="size-6 sm:size-8 mr-2 "
+                          />
                           {item.name}
                         </td>
-                        <td className="py-3">&#8358;{item.price}</td>
+                        <td className="py-3 text-xs sm:text-base hidden sm:table-cell">
+                          &#8358;{item.price}
+                        </td>
                         <td className="py-3">
-                          <div className="flex bg-[#f7f8fd] justify-between p-2 w-24 rounded-lg text-sm">
+                          <div className="flex bg-[#f7f8fd] justify-between p-1 sm:p-2 w-14 sm:w-24 rounded-lg text-sm">
                             <button onClick={() => subtract(item.id)}>
-                              <img src={minus} alt="Decrease" />
+                              <img
+                                src={minus}
+                                alt="Decrease"
+                                className="w-2 sm:w-4"
+                              />
                             </button>
 
-                            <h1>{value[item.id]}</h1>
+                            <h1 className="text-xs sm:text-base">
+                              {value[item.id]}
+                            </h1>
 
                             <button onClick={() => addition(item.id)}>
-                              <img src={add} alt="Increase" />
+                              <img
+                                src={add}
+                                alt="Increase"
+                                className="w-2 sm:w-4"
+                              />
                             </button>
                           </div>
                         </td>
-                        <td className="py-2">
+                        <td className="py-2 text-sm sm:text-base">
                           &#8358;{item.price * value[item.id]}
                         </td>
                         <td className="py-2">
                           <button>
-                            <img src={del} alt="Delete" />
+                            <img
+                              src={del}
+                              alt="Delete"
+                              className="size-3 sm:size-4"
+                            />
                           </button>
                         </td>
                       </tr>
@@ -104,15 +132,15 @@ const Cart = () => {
                   </tbody>
                 </table>
 
-                <div className="mt-4 justify-between flex text-blue-800">
-                  <div>
-                    <Link to="/products" className="flex gap-1.5 text-sm ">
+                <div className="text-right mt-4 mr-8 sm:mr-0 justify-between flex text-blue-800">
+                  <Link to="/products">
+                    <div className="hidden sm:flex gap-1.5 text-sm ">
                       <img src={back} alt="Go back" className="size-5" />
                       <p> Continue Shopping</p>
-                    </Link>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-lg font-semibold">
+                    </div>
+                  </Link>
+                  <div className="">
+                    <p className="text-base sm:text-lg font-semibold">
                       Total: &#8358;{totalPrice}
                     </p>
                     <Link
@@ -121,7 +149,7 @@ const Cart = () => {
                         state: { cartItems, value, totalPrice },
                       }}
                     >
-                      <button className="mt-2 bg-blue-800 text-white px-4 py-2 rounded ">
+                      <button className="mt-2 bg-blue-800 text-white px-4 py-2 rounded text-sm sm:text-base ">
                         Checkout
                       </button>
                     </Link>
@@ -134,7 +162,6 @@ const Cart = () => {
           </div>
         </div>
       </div>
-    
     </div>
   );
 };

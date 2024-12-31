@@ -1,22 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './component/Navbar';
-import Home from './pages/Home';
-import AllStores from './pages/AllStores';
-import Productpage from './pages/Productpage';
-import ProductDetail from './component/ProductDetail';
-import Login from './component/Login';
-import SignUp from './component/Signup';
-import Cart from './pages/Cart';
-import VerifyEmail from './component/VerifyEmail';
-import ResetPassword from './component/ResetPassword';
-import PasswordChange from './component/PasswordChange';
-import Footer from './component/Footer';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./component/Navbar";
+import Home from "./pages/Home";
+import AllStores from "./pages/AllStores";
+import Productpage from "./pages/Productpage";
+import ProductDetail from "./component/ProductDetail";
+import Login from "./component/Login";
+import SignUp from "./component/Signup";
+import Cart from "./pages/Cart";
+import VerifyEmail from "./component/VerifyEmail";
+import ResetPassword from "./component/ResetPassword";
+import PasswordChange from "./component/PasswordChange";
+import Footer from "./component/Footer";
+import Orderhistory from "./pages/Orderhistory";
 function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-        
         <Navbar />
         <main className="flex-1">
           <Routes>
@@ -30,6 +30,7 @@ function App() {
             <Route path="/detail" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/verify-email" element={<VerifyEmail />} />
+            <Route path="/order-history" element={<Orderhistory />} />
           </Routes>
         </main>
 
