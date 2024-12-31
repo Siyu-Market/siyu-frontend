@@ -12,6 +12,7 @@ import VerifyEmail from "./component/VerifyEmail";
 import ResetPassword from "./component/ResetPassword";
 import PasswordChange from "./component/PasswordChange";
 import Footer from "./component/Footer";
+import Orderhistory from "./pages/Orderhistory";
 function App() {
   return (
     <Router>
@@ -29,12 +30,12 @@ function App() {
             <Route path="/detail" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/verify-email" element={<VerifyEmail />} />
+            <Route path="/order-history" element={<Orderhistory />} />
           </Routes>
         </main>
 
         <Footer />
       </div>
-      <Footer />
     </Router>
   );
 }
