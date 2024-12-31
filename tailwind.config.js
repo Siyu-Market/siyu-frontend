@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'custom': '1100px',
+        'product-custom': '1578px', 
+      },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
       },

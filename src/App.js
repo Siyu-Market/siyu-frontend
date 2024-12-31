@@ -1,30 +1,38 @@
-import AllStores from "./pages/AllStores";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./component/Navbar";
 import Home from "./pages/Home";
+import AllStores from "./pages/AllStores";
 import Productpage from "./pages/Productpage";
 import ProductDetail from "./component/ProductDetail";
 import Login from "./component/Login";
 import SignUp from "./component/Signup";
 import Cart from "./pages/Cart";
-import Navbar from "./component/Navbar";
+import VerifyEmail from "./component/VerifyEmail";
+import ResetPassword from "./component/ResetPassword";
+import PasswordChange from "./component/PasswordChange";
 import Footer from "./component/Footer";
-import Orderhistory from "./pages/Orderhistory";
-
 function App() {
   return (
     <Router>
-      <div className="max-w-[1800px] mx-auto px-4 ">
+      <div className="flex flex-col min-h-screen">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/all-stores" element={<AllStores />} />
-          <Route path="/products" element={<Productpage />} />
-          <Route path="/detail" element={<ProductDetail />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/order-history" element={<Orderhistory />} />
-        </Routes>
+        <main className="flex-1">
+          <Routes>
+            <Route path="reset-password" element={<ResetPassword />} />
+            <Route path="password-change" element={<PasswordChange />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/all-stores" element={<AllStores />} />
+            <Route path="/products" element={<Productpage />} />
+            <Route path="/detail" element={<ProductDetail />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/verify-email" element={<VerifyEmail />} />
+          </Routes>
+        </main>
+
+        <Footer />
       </div>
       <Footer />
     </Router>

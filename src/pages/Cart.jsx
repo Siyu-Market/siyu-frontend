@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import earphone from "../assets/products/earphones_a_1.webp";
 import headphone from "../assets/products/headphones_a_1.webp";
+import headphone2 from "../assets/products/headphones_a_2.webp";
 import minus from "../assets/icon-minus.svg";
 import add from "../assets/icon-plus.svg";
 import del from "../assets/icon-delete.svg";
@@ -11,6 +12,7 @@ const Cart = () => {
   const cartItems = [
     { id: 1, image: earphone, name: "Product A", price: 4500, quantity: 3 },
     { id: 2, image: headphone, name: "Product B", price: 10000, quantity: 1 },
+    { id: 3, image: headphone2, name: "Product B", price: 10000, quantity: 3 },
   ];
 
   const [value, setValue] = useState(() => {
@@ -48,11 +50,11 @@ const Cart = () => {
   };
 
   return (
-    <div>
-      <div className="mx-[16px] sm:mx-[100px]">
-        <div className="container mx-auto py-10  ">
-          <div className="px-0 py-2 bg-gray-200 sm:px-6 sm:py-7">
-            <h1 className="pt-2 font-bold mb-4 text-center text-blue-800 text-2xl sm:text-4xl">
+    <div className="max-w-[1800px] mx-auto px-4">
+      <div className="w-full">
+        <div className="py-10">
+          <div className="py-5 w-full bg-blue-800">
+            <h1 className="text-4xl font-bold mb-4 text-center text-white">
               Shopping Cart
             </h1>
           </div>

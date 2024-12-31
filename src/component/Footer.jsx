@@ -1,9 +1,11 @@
 import React from "react";
-import mail from "../assets/envelope (1).png";
+import mail from "../assets/email.png";
 import Instagram from "../assets/icon-instagram.png";
 import Twitter from "../assets/Icon-Twitter.png";
 import Facebook from "../assets/Icon-Facebook.png";
 import LinkedIn from "../assets/Icon-Linkedin.png";
+import Phone from "../assets/phone.png";
+import Location from "../assets/location.png";
 
 function Footer() {
   return (
@@ -12,22 +14,34 @@ function Footer() {
         <div>
           <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
           <div className="flex items-center">
-            <img src={mail} alt="mail icon" className="mr-[5px]" />
+            <img
+              src={mail}
+              alt="mail icon"
+              className="mr-[5px] mb-[5px] w-[25px]"
+            />
             support@siyumarket.com
           </div>
           <div className="flex items-center">
-            <img src="" alt="phone icon" className="mr-[5px]" />
+            <img
+              src={Phone}
+              alt="phone icon"
+              className="mr-[5px] mb-[5px] w-[25px]"
+            />
             +123 456 789
           </div>
           <div className="flex items-center">
-            <img src="" alt="location icon" className="mr-[5px]" />
+            <img
+              src={Location}
+              alt="location icon"
+              className="mr-[5px] mb-[5px] w-[30px]"
+            />
             123 Market Street, City, Country
           </div>
         </div>
 
         <div>
           <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
-          <div></div>
+          <div className=" cursor-pointer">Become a vendor</div>
         </div>
 
         <div>

@@ -7,7 +7,7 @@ import Store from "../component/Store";
 function Home() {
   return (
     <div>
-      <div className="mx-[119px]">
+      <div className="max-w-[1800px] mx-auto px-4">
         <Herobanner />
         <Services />
         <Title
