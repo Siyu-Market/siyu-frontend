@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../component/Navbar";
-import Footer from "../component/Footer";
 import earphone from "../assets/products/earphones_a_1.webp";
 import headphone from "../assets/products/headphones_a_1.webp";
 import minus from "../assets/icon-minus.svg";
@@ -52,7 +50,6 @@ const Cart = () => {
   return (
     <div>
       <div className="mx-[16px] sm:mx-[100px]">
-        <Navbar />
         <div className="container mx-auto py-10  ">
           <div className="px-0 py-2 bg-gray-200 sm:px-6 sm:py-7">
             <h1 className="pt-2 font-bold mb-4 text-center text-blue-800 text-2xl sm:text-4xl">
@@ -163,7 +160,6 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
