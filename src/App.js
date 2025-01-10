@@ -12,27 +12,26 @@ import VerifyEmail from './component/VerifyEmail';
 import ResetPassword from './component/ResetPassword';
 import PasswordChange from './component/PasswordChange';
 import Footer from './component/Footer';
+
 function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-        
         <Navbar />
         <main className="flex-1">
           <Routes>
-            <Route path="reset-password" element={<ResetPassword />} />
-            <Route path="password-change" element={<PasswordChange />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/password-change" element={<PasswordChange />} />
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/vendors" element={<AllStores />} />
             <Route path="/products" element={<Productpage />} />
-            <Route path="/detail" element={<ProductDetail />} />
+            <Route path="/product/:id" element={<ProductDetail />} /> 
             <Route path="/cart" element={<Cart />} />
             <Route path="/verify-email" element={<VerifyEmail />} />
           </Routes>
         </main>
-
         <Footer />
       </div>
     </Router>

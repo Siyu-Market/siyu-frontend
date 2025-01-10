@@ -10,9 +10,13 @@ function Navbar() {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const { user, logout } = useUser();
-  const [count, setCount] = useState(3)
+  const { user, logout, cart } = useUser();
+  const [count, setCount] = useState(0);
 
+  
+  useEffect(() => {
+    setCount(cart.length); 
+  }, [cart]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,21 +30,25 @@ function Navbar() {
   }, []);
 
   return (
-    <div className="w-full flex items-center justify-between mt-8 px-6 relative">
-      
-      <div className="flex items-end justify-center cursor-pointer" onClick={() => navigate('/')}>
+    <div className="w-full flex items-center justify-between mt-8 px-6 relative z-10 ">
+      <div
+        className="flex items-end justify-center cursor-pointer"
+        onClick={() => navigate('/')}
+      >
         <img src={Logo} className="h-[46px] w-[60px]" alt="Siyu Market" />
         <h2 className="text-3xl font-semibold">Siyu Market</h2>
       </div>
 
-      
-      <div className="custom:hidden cursor-pointer z-50" onClick={() => setMenuOpen(!menuOpen)}>
+      <div
+        className="custom:hidden cursor-pointer z-50"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
         <div className="w-6 h-1 bg-black mb-1"></div>
         <div className="w-6 h-1 bg-black mb-1"></div>
         <div className="w-6 h-1 bg-black"></div>
       </div>
 
-      {/* Sidenavigfation */}
+      
       <div
         className={`fixed top-0 right-0 h-full bg-white flex-col justify-between flex transition-transform duration-300 ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
@@ -81,7 +89,6 @@ function Navbar() {
               navigate('/cart');
             }}
           >
-            
             Cart
           </div>
           {!user ? (
@@ -126,45 +133,72 @@ function Navbar() {
             About Us
           </div>
         </div>
-        <div className='flex justify-center items-center'>
-          {user && <div
-              className="text-lg cursor-pointer  bg-blue-800 w-[80%] flex items-center text-white rounded-[8px] justify-center py-[10px] mb-[32px]"
+        <div className="flex justify-center items-center">
+          {user && (
+            <div
+              className="text-lg cursor-pointer bg-blue-800 w-[80%] flex items-center text-white rounded-[8px] justify-center py-[10px] mb-[32px]"
               onClick={() => {
                 setMenuOpen(false);
-                logout()
+                logout();
               }}
             >
               Logout
-          </div>}
+            </div>
+          )}
         </div>
       </div>
 
       <div className="hidden custom:flex items-center">
-        <div className="text-normal mr-[24px] cursor-pointer" onClick={() => navigate('/')}>
+        <div
+          className="text-normal mr-[24px] cursor-pointer"
+          onClick={() => navigate('/')}
+        >
           Home
         </div>
-        <div className="text-normal mr-[24px] cursor-pointer" onClick={() => navigate('/vendors')}>
+        <div
+          className="text-normal mr-[24px] cursor-pointer"
+          onClick={() => navigate('/vendors')}
+        >
           Vendors
         </div>
-        <div className="text-normal mr-[24px] cursor-pointer" onClick={() => navigate('/products')}>
+        <div
+          className="text-normal mr-[24px] cursor-pointer"
+          onClick={() => navigate('/products')}
+        >
           Products
         </div>
-        <div className="text-normal mr-[24px] cursor-pointer" onClick={() => navigate('/')}>
+        <div
+          className="text-normal mr-[24px] cursor-pointer"
+          onClick={() => navigate('/')}
+        >
           About Us
         </div>
       </div>
 
-
       <div className="hidden custom:flex items-center justify-center">
         <div className="bg-gray-200 rounded-sm flex w-[243px] h-[38px] mr-[16px] items-center justify-center outline-none border-0">
-          <input type="text" placeholder="Search" className="bg-transparent" disabled />
-          <img src={Search} alt="Search Icon" className="my-[7px] cursor-pointer" />
+          <input
+            type="text"
+            placeholder="Search"
+            className="bg-transparent"
+            disabled
+          />
+          <img
+            src={Search}
+            alt="Search Icon"
+            className="my-[7px] cursor-pointer"
+          />
         </div>
         <div className="flex justify-between items-center">
-          <div onClick={() => navigate('/cart')} className='relative'>
-            <img src={CartIcon} alt="Cart Icon" className="my-[7px] mr-[16px] cursor-pointer" />
-            <div className='w-[15px] h-[15px] rounded-full bg-red-600 text-white absolute top-2 right-4 flex items-center justify-center text-[10px]'>{count}</div>
-            {/* Fix the cart div to add like a count on the number of items in the cart */}
+          <div onClick={() => navigate('/cart')} className="relative">
+            <img
+              src={CartIcon}
+              alt="Cart Icon"
+              className="my-[7px] mr-[16px] cursor-pointer"
+            />
+            <div className="w-[15px] h-[15px] rounded-full bg-red-600 text-white absolute top-2 right-4 flex items-center justify-center text-[10px]">
+              {count}
+            </div>
           </div>
           <div className="relative">
             <img
@@ -208,13 +242,12 @@ function Navbar() {
                     <div
                       className="cursor-pointer py-2 hover:bg-gray-100"
                       onClick={() => {
-                        logout()
+                        logout();
                         setDropdownOpen(false);
                       }}
                     >
                       Logout
                     </div>
-
                   </>
                 )}
               </div>

@@ -1,29 +1,48 @@
-import React from 'react';
-import { TypeAnimation } from 'react-type-animation';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import Countdown from "react-countdown";
 
 function Herobanner() {
-  const navigate = useNavigate()
+  
+  const countdownDate = new Date().getTime() + 1000 * 60 * 60 * 24; // 24 hours from now
+
   return (
-    <div className="bg-cover bg-center h-[500px] flex items-center justify-center text-center">
-      <div>
-        <TypeAnimation
-        sequence={[
-            'Siyu Market'
-        ]}
-        wrapper="span"
-        speed={50}
-        className="text-8xl font-bold mb-4"
-        style={{ display: 'inline-block' }}
+    <div className="flex flex-col md:flex-row items-center justify-between bg-black text-white p-6 md:p-12 rounded-lg shadow-lg">
+      
+      <div className="text-center md:text-left md:w-1/2 space-y-4">
+        <h1 className="text-2xl md:text-4xl font-bold">Enhance Your Shopping Experience</h1>
         
-        />
-        <p className="text-lg mb-6">
-          Siyu Market is your go-to destination for everything you need. Discover a wide range of products, including clothing, jewelry, perfumes, iPod accessories, and more—all from your favorite, affordable vendors.
-        </p>
-        <button onClick={() => {navigate('/products')}} className="rounded-[4px] px-[48px] py-[16px] bg-blue-700 text-white hover:bg-blue-800 transition duration-300">
-          Shop Now
+  
+        <div className="flex justify-center md:justify-start space-x-4">
+          <Countdown
+            date={countdownDate}
+            renderer={({ hours, minutes, seconds, days }) => (
+              <>
+                <div className="text-center">
+                  <p className="text-2xl font-bold">{days}</p>
+                  <p className="text-sm">Days</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-2xl font-bold">{hours}</p>
+                  <p className="text-sm">Hours</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-2xl font-bold">{minutes}</p>
+                  <p className="text-sm">Minutes</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-2xl font-bold">{seconds}</p>
+                  <p className="text-sm">Seconds</p>
+                </div>
+              </>
+            )}
+          />
+        </div>
+
+        <button className="bg-blue-800 text-white px-6 py-2 rounded-md font-medium hover:bg-white hover:text-black transition duration-300">
+          Buy Now!
         </button>
       </div>
+
     </div>
   );
 }

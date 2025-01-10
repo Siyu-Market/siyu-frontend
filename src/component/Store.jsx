@@ -18,6 +18,7 @@ const Store = () => {
         }
         const data = await response.json();
         setVendors(data.data.stores); 
+        console.log(data.data.stores)
       } catch (err) {
         setError(err.message);
       } finally {
@@ -31,7 +32,7 @@ const Store = () => {
   return (
     <div className="py-10">
       {loading ? (
-        <p className="text-center">Loading...</p>
+        <Spinner />
       ) : error ? (
         <Spinner />
       ) : (
@@ -49,7 +50,7 @@ const Store = () => {
             >
               <Vendor
                 name={vendor.name}
-                logo={vendor.logo}
+                logo={vendor.image_url}
                 description ={[vendor.description]} 
                 
               />

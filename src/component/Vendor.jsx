@@ -3,7 +3,7 @@ import React from 'react';
 
 const VendorTile = ({ name, logo, description }) => {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-6 text-center shadow-lg  hover:bg-blue-800 hover:text-white">
+    <div className="bg-white border border-gray-200 rounded-lg p-6 text-center shadow-lg">
       <div className='flex items-center justify-between px-3'>
         <h3 className="text-xl font-semibold mb-4">{name}</h3>
         <img src={logo} alt={`${name} logo`} className="mx-auto mb-4 w-24 h-24 object-contain" />
