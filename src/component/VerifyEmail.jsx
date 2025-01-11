@@ -76,12 +76,6 @@ function VerifyEmail() {
       <div className="py-0 flex items-center justify-center w-[90vw]">
         <div className="h-[90vh] flex items-center justify-center">
           <div className="w-[400px]">
-            <div className="flex items-center mb-[40px]">
-              <div className="flex items-center justify-center w-[50px] h-[50px] mr-2 rounded-full shadow-lg bg-white">
-                <img src={Logo} alt="logo" className="logo w-[25px] mr-[1px] object-contain" />
-              </div>
-              <h1 className="text-[30px] font-bold text-[#00214F]">Siyu Market</h1>
-            </div>
             <h2 className="mb-[12px] text-[36px] font-semibold">Email Verification</h2>
             <p className="mb-[20px] text-[16px] font-normal">Please verify your email</p>
             {error && <p className="text-red-600 mb-4">{error}</p>}

@@ -39,7 +39,7 @@ const Store = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-8 px-4 mb-6">
           {vendors.map((vendor, index) => (
             <motion.div
-              key={vendor.id}
+              key={vendor.id || index}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{

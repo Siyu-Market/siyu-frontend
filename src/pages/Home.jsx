@@ -31,7 +31,7 @@ function Home() {
 
         <Herobanner />
 
-        <h3 className='text-4xl font-bold  mt-[60px]'>Browse our products</h3>
+        <h3 className='text-4xl font-bold  mt-[60px]'>Browse products</h3>
         <ProductGrid />
       </div>
     </div>

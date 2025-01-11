@@ -21,7 +21,6 @@ function SignUp() {
   };
 
   const validatePassword = (password) => {
-    
     const minLength = 8;
     if (password.length < minLength) {
       return 'Password must be at least 8 characters long';
@@ -42,9 +41,8 @@ function SignUp() {
       return 'Password must contain at least one number';
     }
 
-    
     return true;
-  }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -57,8 +55,6 @@ function SignUp() {
       setLoading(false);
       return;
     }
-
-    
 
     try {
       const response = await fetch('https://siyumarket-backend.vercel.app/users/auth/register', {
@@ -81,9 +77,9 @@ function SignUp() {
       }
 
       const data = await response.json();
-      console.log('data:', data)
+      console.log('data:', data);
       setSuccess('Registration successful! Redirecting to login...');
-      setTimeout(() => navigate('/verify-email'), 3000); 
+      setTimeout(() => navigate('/verify-email'), 3000);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -91,79 +87,73 @@ function SignUp() {
     }
   };
 
-  if(user){
-    navigate('/')
-    return
+  if (user) {
+    navigate('/');
+    return;
   }
 
   return (
-    <div className="max-w-[1800px] mx-auto px-4">
-      <div className="w-[90vw] py-0 flex items-center justify-center">
+    <div className="max-w-full mx-auto px-4">
+      <div className="w-full py-0 flex items-center justify-center">
         <div className="pt-[30px] flex items-center justify-center">
-          <div className="w-[600px]">
-            <div className="flex items-center justify-center mb-[20px]">
-              <div className="flex items-center justify-center w-[50px] h-[50px] mr-2 rounded-full shadow-lg bg-white">
-                <img src={Logo} alt="logo" className="logo w-[25px] mr-[1px] object-contain" />
-              </div>
-              <h1 className="text-[30px] font-bold text-[#00214F]">Siyu Market</h1>
-            </div>
-            <h2 className="mb-[12px] text-[36px] font-semibold">Sign up</h2>
-            <p className="mb-[32px] text-[16px] font-normal">Please enter your details</p>
+          <div className="w-full sm:max-w-[600px] px-4">
+            <h2 className="mb-[12px] text-[24px] sm:text-[36px] font-semibold">Sign up</h2>
+            <p className="mb-[32px] text-[14px] sm:text-[16px] font-normal">Please enter your details</p>
             {error && <p className="text-red-600 mb-4">{error}</p>}
             {success && <p className="text-green-600 mb-4">{success}</p>}
             <form onSubmit={handleSubmit}>
-              <div className="flex justify-between items-center">
-                <div className="w-[48%]">
+              <div className="flex flex-wrap justify-between items-center">
+                <div className="w-full sm:w-[48%] mb-4 sm:mb-0">
                   <h6 className="mb-[6px] text-[14px] font-medium">First Name</h6>
                   <input
                     type="text"
                     placeholder="ex: John"
-                    className="border rounded-[8px] px-[14px] py-[10px] w-full mb-[20px]"
+                    className="border rounded-[8px] px-[14px] py-[10px] w-full"
                     value={firstName}
                     onChange={handleChange(setFirstName)}
                     required
                   />
                 </div>
-                <div className="w-[48%]">
+                <div className="w-full sm:w-[48%]">
                   <h6 className="mb-[6px] text-[14px] font-medium">Last Name</h6>
                   <input
                     type="text"
                     placeholder="ex: Doe"
-                    className="border rounded-[8px] px-[14px] py-[10px] w-full mb-[20px]"
+                    className="border rounded-[8px] px-[14px] py-[10px] w-full"
                     value={lastName}
                     onChange={handleChange(setLastName)}
                     required
                   />
                 </div>
               </div>
-              <div className="w-full">
+              <div className="w-full mb-4">
                 <h6 className="mb-[6px] text-[14px] font-medium">Telegram Number</h6>
                 <input
                   type="text"
                   placeholder="ex: 080xxxxxxxx"
-                  className="border rounded-[8px] px-[14px] py-[10px] w-full mb-[20px]"
+                  className="border rounded-[8px] px-[14px] py-[10px] w-full"
                   value={telephone}
                   onChange={handleChange(setTelephone)}
                   required
                 />
               </div>
-              <div className="w-full">
+              <div className="w-full mb-4">
                 <h6 className="mb-[6px] text-[14px] font-medium">Email</h6>
                 <input
                   type="text"
                   placeholder="Enter your Email"
-                  className="border rounded-[8px] px-[14px] py-[10px] w-full mb-[20px]"
+                  className="border rounded-[8px] px-[14px] py-[10px] w-full"
                   value={email}
                   onChange={handleChange(setEmail)}
                   required
                 />
               </div>
-              <div className="w-full">
+              <div className="w-full mb-4">
                 <h6 className="mb-[6px] text-[14px] font-medium">Password</h6>
                 <input
                   type="password"
                   placeholder="Enter your password"
-                  className="border rounded-[8px] px-[14px] py-[10px] w-full mb-[20px]"
+                  className="border rounded-[8px] px-[14px] py-[10px] w-full"
                   value={password}
                   onChange={handleChange(setPassword)}
                   required
@@ -176,7 +166,7 @@ function SignUp() {
               >
                 {loading ? '...loading' : 'Sign up'}
               </button>
-              <h5 className="text-center mb-[20px]">
+              <h5 className="text-center mb-[20px] text-[14px] sm:text-[16px]">
                 Already have an account?{' '}
                 <span className="text-[#0179FE] cursor-pointer" onClick={() => navigate('/login')}>
                   Login

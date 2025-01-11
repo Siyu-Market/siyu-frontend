@@ -20,9 +20,7 @@ function PasswordChange() {
     console.log('user: ', user);
   }
 
-  
   const validatePassword = (password) => {
-    
     const minLength = 8;
     if (password.length < minLength) {
       return 'Password must be at least 8 characters long';
@@ -43,7 +41,7 @@ function PasswordChange() {
       return 'Password must contain at least one number';
     }
     return true;
-  }
+  };
 
   const handleChange = (setter) => (event) => {
     setter(event.target.value);
@@ -55,7 +53,6 @@ function PasswordChange() {
     setError(null);
     setSuccessMessage(null);
 
-    
     const passwordValidation = validatePassword(newPassword);
     if (passwordValidation !== true) {
       setError(passwordValidation);
@@ -104,62 +101,57 @@ function PasswordChange() {
   };
 
   return (
-    <div className="max-w-[1800px] mx-auto px-4">
-      <div className="py-0 flex items-center justify-center w-[90vw]">
-        <div className="h-[90vh] flex items-center justify-center">
-          <div className="w-[400px]">
-            <div className="flex items-center mb-[40px]">
-              <div className="flex items-center justify-center w-[50px] h-[50px] mr-2 rounded-full shadow-lg bg-white">
-                <img src={Logo} alt="logo" className="logo w-[25px] mr-[1px] object-contain" />
-              </div>
-              <h1 className="text-[30px] font-bold text-[#00214F]">Siyu Market</h1>
-            </div>
-            <h2 className="mb-[12px] text-[36px] font-semibold">Reset Password</h2>
-            <p className="mb-[20px] text-[16px] font-normal">Enter your new password below</p>
-            {error && <p className="text-red-600 mb-4">{error}</p>}
-            {successMessage && <p className="text-green-600 mb-4">{successMessage}</p>}
-            <form onSubmit={handleSubmit}>
-              <h6 className="mb-[6px] text-[14px] font-medium">Old Password</h6>
-              <input
-                type="password"
-                placeholder="Enter your Old password"
-                className="loginInput w-full mb-[20px] border rounded-[8px] px-[14px] py-[10px]"
-                value={oldPassword}
-                onChange={handleChange(setOldPassword)}
-                required
-              />
-              <h6 className="mb-[6px] text-[14px] font-medium">New Password</h6>
-              <input
-                type="password"
-                placeholder="Enter your new password"
-                className="loginInput w-full mb-[20px] border rounded-[8px] px-[14px] py-[10px]"
-                value={newPassword}
-                onChange={handleChange(setNewPassword)}
-                required
-              />
-              <h6 className="mb-[6px] text-[14px] font-medium">Confirm Password</h6>
-              <input
-                type="password"
-                placeholder="Confirm your new password"
-                className="loginInput w-full mb-[20px] border rounded-[8px] px-[14px] py-[10px]"
-                value={confirmPassword}
-                onChange={handleChange(setConfirmPassword)}
-                required
-              />
-              <button
-                disabled={loading}
-                className="bg-blue-800 w-full flex items-center text-white rounded-[8px] justify-center py-[10px] mb-[32px]"
+    <div className="max-w-screen-lg mx-auto px-4">
+      <div className="flex items-center justify-center py-12">
+        <div className="w-full max-w-md">
+          <h2 className="mb-4 text-2xl font-semibold">Reset Password</h2>
+          <p className="mb-6 text-lg font-normal">Enter your new password below</p>
+          {error && <p className="text-red-600 mb-4">{error}</p>}
+          {successMessage && <p className="text-green-600 mb-4">{successMessage}</p>}
+          <form onSubmit={handleSubmit}>
+            <h6 className="mb-2 text-sm font-medium">Old Password</h6>
+            <input
+              type="password"
+              placeholder="Enter your Old password"
+              className="loginInput w-full mb-5 border rounded-md px-4 py-3"
+              value={oldPassword}
+              onChange={handleChange(setOldPassword)}
+              required
+            />
+            <h6 className="mb-2 text-sm font-medium">New Password</h6>
+            <input
+              type="password"
+              placeholder="Enter your new password"
+              className="loginInput w-full mb-5 border rounded-md px-4 py-3"
+              value={newPassword}
+              onChange={handleChange(setNewPassword)}
+              required
+            />
+            <h6 className="mb-2 text-sm font-medium">Confirm Password</h6>
+            <input
+              type="password"
+              placeholder="Confirm your new password"
+              className="loginInput w-full mb-5 border rounded-md px-4 py-3"
+              value={confirmPassword}
+              onChange={handleChange(setConfirmPassword)}
+              required
+            />
+            <button
+              disabled={loading}
+              className="bg-blue-800 w-full flex items-center text-white rounded-md justify-center py-3 mb-6"
+            >
+              {loading ? 'Loading...' : 'Reset Password'}
+            </button>
+            <h5 className="text-center text-sm">
+              Back to{' '}
+              <span
+                className="text-[#0179FE] cursor-pointer"
+                onClick={() => navigate('/')}
               >
-                {loading ? 'Loading...' : 'Reset Password'}
-              </button>
-              <h5 className="text-center">
-                Back to{' '}
-                <span className="text-[#0179FE] cursor-pointer" onClick={() => navigate('/')}>
-                  Home
-                </span>
-              </h5>
-            </form>
-          </div>
+                Home
+              </span>
+            </h5>
+          </form>
         </div>
       </div>
     </div>

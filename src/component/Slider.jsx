@@ -20,7 +20,7 @@ function Slider() {
       description: 'Unbeatable prices on clothing, jewelry, perfumes, and much more. Don’t miss out!',
       color: 'bg-green-500',
       buttonText: 'View Deals',
-      buttonLink: '/deals',
+      buttonLink: '/products',
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ function Slider() {
       description: 'Enjoy a seamless shopping experience with trusted vendors and reliable delivery.',
       color: 'bg-purple-500',
       buttonText: 'Start Shopping',
-      buttonLink: '/shop',
+      buttonLink: '/products',
     },
     {
       id: 4,
@@ -45,13 +45,12 @@ function Slider() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 3000); // Change slide every 3 seconds
-    return () => clearInterval(interval); // Cleanup interval on component unmount
+    }, 4000); 
+    return () => clearInterval(interval); 
   }, [slides.length]);
 
   return (
     <div className="relative w-full my-[10px] h-[400px] md:h-[500px] overflow-hidden">
-      {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -60,7 +59,7 @@ function Slider() {
           } ${slide.color}`}
         >
           <TypeAnimation
-            key={currentSlide} // Ensures the animation restarts when the slide changes
+            key={currentSlide}
             sequence={[slide.heading]}
             wrapper="h1"
             speed={50}
@@ -70,7 +69,10 @@ function Slider() {
             {slide.description}
           </p>
           <button
-            onClick={() => navigate(slide.buttonLink)}
+            onClick={() => {
+              console.log('Navigating to:', slide.buttonLink);
+              navigate("/products");
+            }}
             className="rounded-[4px] px-8 py-3 md:px-12 md:py-4 bg-white text-black hover:bg-gray-200 transition duration-300 text-sm md:text-base"
           >
             {slide.buttonText}
@@ -78,7 +80,6 @@ function Slider() {
         </div>
       ))}
 
-      {/* Navigation Indicators */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {slides.map((_, index) => (
           <button
