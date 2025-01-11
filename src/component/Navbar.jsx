@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Search from '../assets/Component 2.png';
@@ -176,19 +177,6 @@ function Navbar() {
       </div>
 
       <div className="hidden custom:flex items-center justify-center">
-        <div className="bg-gray-200 rounded-sm flex w-[243px] h-[38px] mr-[16px] items-center justify-center outline-none border-0">
-          <input
-            type="text"
-            placeholder="Search"
-            className="bg-transparent"
-            disabled
-          />
-          <img
-            src={Search}
-            alt="Search Icon"
-            className="my-[7px] cursor-pointer"
-          />
-        </div>
         <div className="flex justify-between items-center">
           <div onClick={() => navigate('/cart')} className="relative">
             <img

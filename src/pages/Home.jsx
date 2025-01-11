@@ -23,7 +23,7 @@ function Home() {
         <Services />
         <Title title="Top Vendors, Top Deals" subtitle="Our largest vendors with massive sales are ready to bring you unbeatable deals!"/>
         <Store />
-        <div className="w-full flex justify-center items-center my-[10px]">
+        <div className="w-full flex justify-center items-center mt-[10px] mb-[40px]">
           <button onClick={() => navigate('/vendors')} className="rounded-[4px] px-[48px] py-[16px] mx-auto bg-blue-700 text-white hover:bg-blue-800 transition duration-300">
             Show All Vendors
           </button>

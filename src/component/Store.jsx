@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; 
 import Vendor from './Vendor';
-import Spinner from './Spinner'
+import Spinner from './Spinner';
 
 const Store = () => {
   const [vendors, setVendors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  
   useEffect(() => {
     const fetchStores = async () => {
       try {
@@ -18,7 +18,7 @@ const Store = () => {
         }
         const data = await response.json();
         setVendors(data.data.stores); 
-        console.log(data.data.stores)
+        console.log(data.data.stores);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -36,10 +36,10 @@ const Store = () => {
       ) : error ? (
         <Spinner />
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-8 px-4 mb-6">
           {vendors.map((vendor, index) => (
             <motion.div
-              key={vendor.id} 
+              key={vendor.id}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
@@ -48,12 +48,13 @@ const Store = () => {
               }}
               className="relative transition-all duration-300 ease-in-out transform hover:scale-105 hover:translate-y-2"
             >
-              <Vendor
-                name={vendor.name}
-                logo={vendor.image_url}
-                description ={[vendor.description]} 
-                
-              />
+              <Link to={`/store/${vendor.id}`}>
+                <Vendor
+                  name={vendor.name}
+                  logo={vendor.image_url}
+                  description={vendor.description} 
+                />
+              </Link>
             </motion.div>
           ))}
         </div>

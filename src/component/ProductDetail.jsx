@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useUser } from "../context/Usercontext";
 
 const ProductDetail = () => {
-  const { id } = useParams(); // Get the ID from the URL
+  const { id } = useParams(); 
   const { addToCart, cart } = useUser(); 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -73,7 +73,7 @@ const ProductDetail = () => {
       <div className="flex justify-center items-center">
         <img
           src={
-            product.image_uurl ||
+            product.image_url ||
             "https://via.placeholder.com/400x400?text=No+Image"
           }
           

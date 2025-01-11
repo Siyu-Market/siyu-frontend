@@ -1,15 +1,18 @@
 import React from "react";
 import Countdown from "react-countdown";
+import { useNavigate } from "react-router-dom";
+
 
 function Herobanner() {
   
   const countdownDate = new Date().getTime() + 1000 * 60 * 60 * 24; // 24 hours from now
+  const navigate = useNavigate()
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-between bg-black text-white p-6 md:p-12 rounded-lg shadow-lg">
       
-      <div className="text-center md:text-left md:w-1/2 space-y-4">
-        <h1 className="text-2xl md:text-4xl font-bold">Enhance Your Shopping Experience</h1>
+      <div className="text-center md:text-left md:w-2/3 space-y-4">
+        <h1 className="text-2xl md:text-4xl font-bold">The Countdown Begins – Unbeatable Prices Await!</h1>
         
   
         <div className="flex justify-center md:justify-start space-x-4">
@@ -38,7 +41,7 @@ function Herobanner() {
           />
         </div>
 
-        <button className="bg-blue-800 text-white px-6 py-2 rounded-md font-medium hover:bg-white hover:text-black transition duration-300">
+        <button className="bg-blue-800 text-white px-6 py-2 rounded-md font-medium hover:bg-white hover:text-black transition duration-300" onClick={() => navigate('/products')}>
           Buy Now!
         </button>
       </div>

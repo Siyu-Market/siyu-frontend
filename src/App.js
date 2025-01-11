@@ -12,6 +12,7 @@ import VerifyEmail from './component/VerifyEmail';
 import ResetPassword from './component/ResetPassword';
 import PasswordChange from './component/PasswordChange';
 import Footer from './component/Footer';
+import StoreDetailPage from './component/StoreDetailPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Navbar />
         <main className="flex-1">
           <Routes>
+            <Route path="/store/:id" element={<StoreDetailPage />}/>
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/password-change" element={<PasswordChange />} />
             <Route path="/" element={<Home />} />
