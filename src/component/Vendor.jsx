@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link
+
 
 const VendorTile = ({ name, logo, description, id }) => {
   return (
