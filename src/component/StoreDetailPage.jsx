@@ -4,13 +4,13 @@ import { useUser } from "../context/Usercontext";
 import Spinner from "../component/Spinner";
 
 function StoreDetailPage() {
-  const { id } = useParams(); // Extract the store ID from the URL
+  const { id } = useParams(); 
   const [storeDetails, setStoreDetails] = useState(null);
   const [storeProducts, setStoreProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { addToCart } = useUser();
 
-  // Truncate text to a specified limit
+  
   const truncateText = (text, limit) => {
     if (text.length > limit) {
       return text.substring(0, limit) + "...";
@@ -19,17 +19,17 @@ function StoreDetailPage() {
   };
 
   useEffect(() => {
-    // Fetch store details and products
+    
     const fetchStoreDetails = async () => {
       try {
-        // Fetch store details
+        
         const response = await fetch(`https://siyumarket-backend.vercel.app/store/${id}`);
         if (response.ok) {
           const data = await response.json();
           setStoreDetails(data.data);
           console.log(data.data);
 
-          // Fetch products from the store
+          
           const storeName = data.data.name;
           await fetchStoreProducts(storeName);
         } else {
@@ -69,7 +69,6 @@ function StoreDetailPage() {
 
   return (
     <div className="p-8">
-      {/* Store Information */}
       <div className="bg-white p-6 rounded shadow-lg mb-8">
         <div className="flex items-center gap-6">
           <img
@@ -87,7 +86,7 @@ function StoreDetailPage() {
         </div>
       </div>
 
-      {/* Product Listing */}
+      
       <div>
         <h2 className="text-2xl font-bold mb-4">Products from {storeDetails.name}</h2>
         {storeProducts.length === 0 ? (
@@ -120,7 +119,7 @@ function StoreDetailPage() {
                   </p>
                   <div className="flex items-center justify-between mt-4">
                     <span className="text-xl font-semibold text-black">
-                      ${product.discounted_price}
+                      NGN {product.discounted_price}
                     </span>
                     <span className="text-sm text-gray-500">
                       {product.stock} items available

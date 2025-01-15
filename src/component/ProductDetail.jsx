@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,} from "react-router-dom";
+import {Link} from 'react-router-dom'
 import { useUser } from "../context/Usercontext";
 
 const ProductDetail = () => {
@@ -86,7 +87,7 @@ const ProductDetail = () => {
       <div>
         
         <h1 className="text-2xl font-bold mb-2">{product.name}</h1>
-        <div className="flex items-center mb-4">
+        <div className="flex items-center mb-1">
           <span
             className={`${
               product.stock > 0 ? "text-green-600" : "text-red-600"
@@ -95,10 +96,11 @@ const ProductDetail = () => {
             {product.stock > 0 ? "In Stock" : "Out of Stock"}
           </span>
         </div>
+        <Link to={`/store/${product.store}`} className="underline">View Store</Link>
 
         
         <div className="text-3xl font-semibold mb-4">
-          ${product.discounted_price}
+          NGN {product.discounted_price}
         </div>
 
         

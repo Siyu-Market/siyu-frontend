@@ -79,6 +79,9 @@ const Cart = () => {
         quantity: quantities[item.id] || 1,
       }));
 
+      console.log("User Token:", user?.data.access_token);
+      console.log("Items to send:", itemsToSend);
+
       const response = await fetch(
         "https://siyumarket-backend.vercel.app/cart/add",
         {
@@ -90,11 +93,12 @@ const Cart = () => {
           body: JSON.stringify({ items: itemsToSend }),
         }
       );
-
       if (!response.ok) {
         const errorData = await response.json();
+        console.error("Error response from server:", errorData);
         throw new Error(errorData.message || "Failed to add items to the cart.");
       }
+
 
       const data = await response.json();
       setCart([]);
