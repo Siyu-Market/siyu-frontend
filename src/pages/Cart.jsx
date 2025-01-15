@@ -5,6 +5,7 @@ import minus from "../assets/icon-minus.svg";
 import add from "../assets/icon-plus.svg";
 import del from "../assets/icon-delete.svg";
 import back from "../assets/icon-back.svg";
+import PriceDisplay from "../component/PriceDisplay";
 
 const Cart = () => {
   const { cart, setCart, removeFromCart, user } = useUser();
@@ -143,7 +144,7 @@ const Cart = () => {
                           />
                           <span className="text-sm md:text-base">{item.name}</span>
                         </td>
-                        <td className="py-3">&#8358;{item.price}</td>
+                        <td className="py-3"><PriceDisplay price={item.price} /> </td>
                         <td className="py-3">
                           <div className="flex items-center justify-between bg-gray-100 p-2 w-20 md:w-24 rounded-lg text-sm">
                             <button onClick={() => handleDecrease(item.id)}>
@@ -156,7 +157,7 @@ const Cart = () => {
                           </div>
                         </td>
                         <td className="py-3">
-                          &#8358;{item.price * (quantities[item.id] || 1)}
+                          <PriceDisplay price={item.price * (quantities[item.id] || 1)} />
                         </td>
                         <td className="py-3">
                           <button onClick={() => handleRemove(item.id)}>

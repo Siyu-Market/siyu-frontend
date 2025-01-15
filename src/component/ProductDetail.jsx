@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams,} from "react-router-dom";
 import {Link} from 'react-router-dom'
 import { useUser } from "../context/Usercontext";
+import PriceDisplay from "./PriceDisplay";
 
 const ProductDetail = () => {
   const { id } = useParams(); 
@@ -100,7 +101,8 @@ const ProductDetail = () => {
 
         
         <div className="text-3xl font-semibold mb-4">
-          NGN {product.discounted_price}
+          {/* NGN {product.discounted_price} */}
+          <PriceDisplay price={product.discounted_price} />
         </div>
 
         

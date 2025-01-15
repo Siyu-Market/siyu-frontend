@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useUser } from "../context/Usercontext";
 import Spinner from "../component/Spinner";
+import PriceDisplay from "./PriceDisplay";
 
 function StoreDetailPage() {
   const { id } = useParams(); 
@@ -119,7 +120,7 @@ function StoreDetailPage() {
                   </p>
                   <div className="flex items-center justify-between mt-4">
                     <span className="text-xl font-semibold text-black">
-                      NGN {product.discounted_price}
+                      <PriceDisplay price={product.discounted_price} />
                     </span>
                     <span className="text-sm text-gray-500">
                       {product.stock} items available

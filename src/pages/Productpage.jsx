@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useUser } from "../context/Usercontext";
 import Spinner from "../component/Spinner";
+import PriceDisplay from "../component/PriceDisplay";
 
 function Productpage() {
   const [products, setProducts] = useState([]);
@@ -143,7 +144,7 @@ function Productpage() {
                   </p>
                   <div className="flex items-center justify-between mt-4">
                     <span className="text-xl font-semibold text-black">
-                      ${product.discounted_price}
+                    <PriceDisplay price={product.discounted_price} />
                     </span>
                     <span className="text-sm text-gray-500">
                       {product.stock} items available
